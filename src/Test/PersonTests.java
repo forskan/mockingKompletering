@@ -21,5 +21,16 @@ public class PersonTests {
 		assertEquals(0.0f, person.getPosition(),0);
 		//
 	}	
+	
+	@Test
+	public void testWalk(){
+		Leg mockedLeg1 = mock(Leg.class);	
+		Leg mockedLeg2 = mock(Leg.class);
+		Person person = new Person(mockedLeg1, mockedLeg2);
+		person.walk(2);
+		verify(mockedLeg1).takeStep();
+		verify(mockedLeg2).takeStep();
+		assertEquals(1.0f, person.getPosition(),0);
+	}
 		
 }
