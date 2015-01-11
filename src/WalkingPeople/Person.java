@@ -23,5 +23,17 @@ public class Person {
 		m_rightLeg = a_legTwo;
 	}
 
+	public void walk(int steps) {
+		for(int i = 0; i < steps; i++){
+			if((i%2)==0){ // even
+				m_leftLeg.takeStep(); 	
+			}	   
+			else{ // odd
+				m_rightLeg.takeStep();
+			}	   
+		}
+		
+	}
+
 	
 }

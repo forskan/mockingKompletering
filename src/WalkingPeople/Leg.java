@@ -8,5 +8,9 @@ public class Leg {
 	{
 		return m_position;
 	}
+
+	public void takeStep() {
+		m_position += 1.0f;
+	}
 	
 }

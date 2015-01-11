@@ -18,8 +18,6 @@ public class PersonTests {
 		person.getPosition();
 		verify(mockedLeg1).getPosition();
 		verify(mockedLeg2).getPosition();
-		assertEquals(0.0f, person.getPosition(),0);
-		//
 	}	
 	
 	@Test
@@ -30,7 +28,29 @@ public class PersonTests {
 		person.walk(2);
 		verify(mockedLeg1).takeStep();
 		verify(mockedLeg2).takeStep();
-		assertEquals(1.0f, person.getPosition(),0);
 	}
 		
+	@Test
+	public void testWalkOnRealObjects(){
+		Person p = new Person(new Leg(), new Leg());
+		p.walk(1);
+		assertEquals(1, p.getPosition(), 0);
+	}
+	
+	@Test
+	public void testWalkAlotOnRealObjects(){
+		Person p = new Person(new Leg(), new Leg());
+		p.walk(12);
+		assertEquals(6, p.getPosition(), 0);
+	}
+	
+	@Test
+	public void testWalkAlotTwoOnRealObjects(){
+		Person p = new Person(new Leg(), new Leg());
+		
+		for( int i = 0; i < 12; i++){
+			p.walk(1);
+		}
+		assertEquals(6, p.getPosition(), 0);
+	}
 }
